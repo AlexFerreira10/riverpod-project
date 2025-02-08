@@ -1,15 +1,15 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:riverpod_files/models/product.dart';
 
+part 'cart_provider.g.dart';
+
 // Notifier Providers
 // use when you need to update the state & notify consumers
-
-class CartNotifier extends Notifier<Set<Product>> {
+@riverpod
+class CartNotifier extends _$CartNotifier {
   @override
   Set<Product> build() {
-    return const {
-      Product(id: '4', title: 'Red Backpack', price: 14, image: 'assets/products/backpack.png'),
-    };
+    return const {};
   }
 
   // methods to update state
@@ -25,7 +25,3 @@ class CartNotifier extends Notifier<Set<Product>> {
     }
   }
 }
-
-final cartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>(() {
-  return CartNotifier();
-});
